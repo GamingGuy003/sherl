@@ -1,0 +1,142 @@
+Thread "main" panicked with "invalid anchor Anchor { timestamp: Lamport {0: 1}, offset: 286, bias: Left, buffer_id: Some(BufferId(4294967371)) }. buffer id: 12884902055, version: Global {}" at crates/text/src/text.rs:1969:17
+   0: Zed::init_panic_hook::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/zed/src/main.rs:739:29
+   1: <alloc::boxed::Box<F,A> as core::ops::function::Fn<Args>>::call
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/alloc/src/boxed.rs:2029:9
+      std::panicking::rust_panic_with_hook
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:785:13
+   2: std::panicking::begin_panic_handler::{{closure}}
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:659:13
+   3: std::sys_common::backtrace::__rust_end_short_backtrace
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/sys_common/backtrace.rs:171:18
+   4: rust_begin_unwind
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:647:5
+   5: core::panicking::panic_fmt
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/core/src/panicking.rs:72:14
+   6: <text::BufferSnapshot>::summary_for_anchor::<usize>
+             at /home/gamingguy003/installs/zed/crates/text/src/text.rs:1969:17
+   7: <text::anchor::Anchor as text::ToOffset>::to_offset
+             at /home/gamingguy003/installs/zed/crates/text/src/text.rs:2605:9
+      diagnostics::compare_diagnostics::<text::anchor::Anchor, text::anchor::Anchor>
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:895:5
+      <diagnostics::ProjectDiagnosticsEditor>::populate_excerpts::{closure#1}
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:413:31
+   8: <gpui::window::WindowContext as gpui::Context>::update_model::<multi_buffer::MultiBuffer, multi_buffer::MultiBufferSnapshot, <diagnostics::ProjectDiagnosticsEditor>::populate_excerpts::{closure#1}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/window.rs:1862:22
+      <gpui::window::ViewContext<diagnostics::ProjectDiagnosticsEditor> as gpui::Context>::update_model::<multi_buffer::MultiBuffer, multi_buffer::MultiBufferSnapshot, <diagnostics::ProjectDiagnosticsEditor>::populate_excerpts::{closure#1}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/window.rs:2521:9
+      <gpui::app::entity_map::Model<multi_buffer::MultiBuffer>>::update::<gpui::window::ViewContext<diagnostics::ProjectDiagnosticsEditor>, multi_buffer::MultiBufferSnapshot, <diagnostics::ProjectDiagnosticsEditor>::populate_excerpts::{closure#1}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app/entity_map.rs:414:12
+      <diagnostics::ProjectDiagnosticsEditor>::populate_excerpts
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:386:47
+   9: <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:322:29
+      <gpui::window::WindowContext as gpui::VisualContext>::update_view::<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/window.rs:1954:22
+      <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view::<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app/async_context.rs:390:35
+      <gpui::app::AppContext as gpui::Context>::update_window::<(), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app.rs:1322:26
+      <gpui::app::AppContext>::update::<core::result::Result<(), anyhow::Error>, <gpui::app::AppContext as gpui::Context>::update_window<(), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>::{closure#0}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app.rs:363:22
+      <gpui::app::AppContext as gpui::Context>::update_window::<(), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app.rs:1313:9
+      <gpui::app::async_context::AsyncAppContext as gpui::Context>::update_window::<(), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app/async_context.rs:94:14
+      <gpui::app::async_context::AsyncWindowContext as gpui::Context>::update_window::<(), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app/async_context.rs:357:9
+      <gpui::window::AnyWindowHandle>::update::<gpui::app::async_context::AsyncWindowContext, (), <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>::{closure#0}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/window.rs:2786:12
+      <gpui::app::async_context::AsyncWindowContext as gpui::VisualContext>::update_view::<diagnostics::ProjectDiagnosticsEditor, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app/async_context.rs:390:14
+      <gpui::view::View<diagnostics::ProjectDiagnosticsEditor>>::update::<gpui::app::async_context::AsyncWindowContext, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/view.rs:75:9
+      <gpui::view::WeakView<diagnostics::ProjectDiagnosticsEditor>>::update::<gpui::app::async_context::AsyncWindowContext, (), <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}::{closure#2}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/view.rs:187:17
+      <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:321:25
+  10: <<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0} as futures_core::future::TryFuture>::try_poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-core-0.3.30/src/future.rs:82:9
+      <futures_util::future::try_future::into_future::IntoFuture<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}> as core::future::future::Future>::poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-util-0.3.30/src/future/try_future/into_future.rs:34:9
+      <futures_util::future::try_future::into_future::IntoFuture<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}> as futures_core::future::TryFuture>::try_poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-core-0.3.30/src/future.rs:82:9
+      <futures_util::future::try_maybe_done::TryMaybeDone<futures_util::future::try_future::into_future::IntoFuture<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}>> as core::future::future::Future>::poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-util-0.3.30/src/future/try_maybe_done.rs:79:57
+      <futures_util::future::try_maybe_done::TryMaybeDone<futures_util::future::try_future::into_future::IntoFuture<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}>> as futures_core::future::TryFuture>::try_poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-core-0.3.30/src/future.rs:82:9
+      <futures_util::future::try_join_all::TryJoinAll<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}::{closure#0}::{closure#0}> as core::future::future::Future>::poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-util-0.3.30/src/future/try_join_all.rs:163:32
+      <diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/diagnostics/src/diagnostics.rs:328:18
+      <util::LogErrorFuture<<diagnostics::ProjectDiagnosticsEditor>::update_excerpts::{closure#6}::{closure#0}> as core::future::future::Future>::poll
+             at /home/gamingguy003/installs/zed/crates/util/src/util.rs:341:15
+  11: <core::pin::Pin<alloc::boxed::Box<dyn core::future::future::Future<Output = core::option::Option<()>>>> as core::future::future::Future>::poll
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/core/src/future/future.rs:124:9
+      <<async_task::runnable::Builder<_>>::spawn_local::Checked<core::pin::Pin<alloc::boxed::Box<dyn core::future::future::Future<Output = core::option::Option<()>>>>> as core::future::future::Future>::poll
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/async-task-4.7.0/src/runnable.rs:455:26
+      <async_task::raw::RawTask<<async_task::runnable::Builder<_>>::spawn_local::Checked<core::pin::Pin<alloc::boxed::Box<dyn core::future::future::Future<Output = core::option::Option<()>>>>>, core::option::Option<()>, <gpui::executor::ForegroundExecutor>::spawn::inner<core::option::Option<()>>::{closure#0}, ()>>::run
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/async-task-4.7.0/src/raw.rs:557:17
+  12: <async_task::runnable::Runnable>::run
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/async-task-4.7.0/src/runnable.rs:781:18
+      <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/platform/linux/headless/client.rs:42:26
+      <core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/mod.rs:327:61
+      <calloop::sources::channel::Channel<async_task::runnable::Runnable> as calloop::sources::EventSource>::process_events::<<core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}>::{closure#0}
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/channel.rs:187:32
+      <calloop::sources::ping::eventfd::PingSource as calloop::sources::EventSource>::process_events::<<calloop::sources::channel::Channel<async_task::runnable::Runnable> as calloop::sources::EventSource>::process_events<<core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}>::{closure#0}>::{closure#0}
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/ping/eventfd.rs:138:21
+      <calloop::sources::generic::Generic<calloop::sources::ping::eventfd::ArcAsFd> as calloop::sources::EventSource>::process_events::<<calloop::sources::ping::eventfd::PingSource as calloop::sources::EventSource>::process_events<<calloop::sources::channel::Channel<async_task::runnable::Runnable> as calloop::sources::EventSource>::process_events<<core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}>::{closure#0}>::{closure#0}>
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/generic.rs:290:9
+      <calloop::sources::ping::eventfd::PingSource as calloop::sources::EventSource>::process_events::<<calloop::sources::channel::Channel<async_task::runnable::Runnable> as calloop::sources::EventSource>::process_events<<core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}>::{closure#0}>
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/ping/eventfd.rs:127:9
+      <calloop::sources::channel::Channel<async_task::runnable::Runnable> as calloop::sources::EventSource>::process_events::<<core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events::{closure#0}>
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/channel.rs:184:9
+      <core::cell::RefCell<calloop::sources::DispatcherInner<calloop::sources::channel::Channel<async_task::runnable::Runnable>, <gpui::platform::linux::headless::client::HeadlessClient>::new::{closure#0}>> as calloop::sources::EventDispatcher<gpui::platform::linux::headless::client::HeadlessClient>>::process_events
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/sources/mod.rs:326:9
+  13: <calloop::loop_logic::EventLoop<gpui::platform::linux::wayland::client::WaylandClientStatePtr>>::dispatch_events
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/loop_logic.rs:445:31
+      <calloop::loop_logic::EventLoop<gpui::platform::linux::wayland::client::WaylandClientStatePtr>>::dispatch::<core::option::Option<core::time::Duration>>
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/loop_logic.rs:559:9
+      <calloop::loop_logic::EventLoop<gpui::platform::linux::wayland::client::WaylandClientStatePtr>>::run::<<gpui::platform::linux::wayland::client::WaylandClient as gpui::platform::linux::platform::LinuxClient>::run::{closure#0}, core::option::Option<core::time::Duration>>
+             at /home/gamingguy003/.cargo/registry/src/index.crates.io-6f17d22bba15001f/calloop-0.12.4/src/loop_logic.rs:596:13
+      <gpui::platform::linux::wayland::client::WaylandClient as gpui::platform::linux::platform::LinuxClient>::run
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/platform/linux/wayland/client.rs:426:9
+  14: <gpui::platform::linux::wayland::client::WaylandClient as gpui::platform::Platform>::run
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/platform/linux/platform.rs:127:9
+  15: <gpui::app::App>::run::<Zed::init_ui::{closure#3}>
+             at /home/gamingguy003/installs/Zed/zed/crates/gpui/src/app.rs:142:9
+  16: Zed::init_ui
+             at /home/gamingguy003/installs/Zed/zed/crates/zed/src/main.rs:223:5
+      Zed::main
+             at /home/gamingguy003/installs/Zed/zed/crates/zed/src/main.rs:438:9
+  17: <fn() as core::ops::function::FnOnce<()>>::call_once
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/core/src/ops/function.rs:250:5
+      std::sys_common::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/sys_common/backtrace.rs:155:18
+  18: std::rt::lang_start::<()>::{closure#0}
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/rt.rs:166:18
+  19: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/core/src/ops/function.rs:284:13
+      std::panicking::try::do_call
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:554:40
+      std::panicking::try
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:518:19
+      std::panic::catch_unwind
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panic.rs:142:14
+      std::rt::lang_start_internal::{{closure}}
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/rt.rs:148:48
+      std::panicking::try::do_call
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:554:40
+      std::panicking::try
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panicking.rs:518:19
+      std::panic::catch_unwind
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/panic.rs:142:14
+      std::rt::lang_start_internal
+             at /rustc/25ef9e3d85d934b27d9dada2f9dd52b1dc63bb04/library/std/src/rt.rs:148:20
+  20: main
+  21: __libc_start_call_main
+  22: __libc_start_main_impl
+  23: _start
+

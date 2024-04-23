@@ -1,10 +1,9 @@
 use components::prompt;
 
+mod code;
 mod components;
 
 fn main() -> std::io::Result<()> {
-    loop {
-        prompt::prompt()?;
-    }
+    prompt::prompt()?;
     Ok(())
 }
