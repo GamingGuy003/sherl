@@ -1,6 +1,6 @@
 use components::prompt;
 
-mod code;
+mod bash_parser;
 mod components;
 
 fn main() -> std::io::Result<()> {
