@@ -8,7 +8,7 @@ pub struct ParserError {
 
 impl Display for ParserError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self.error_type {
+        match self.error_type.clone() {
             ParserErrorType::Other(message) => {
                 write!(f, "{:?} at {}: {}", message, self.position, self.message)
             }
@@ -21,7 +21,7 @@ impl Display for ParserError {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum ParserErrorType {
     InputStream,
     Lexer,

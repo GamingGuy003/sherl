@@ -45,6 +45,9 @@ impl TokenStream {
             }
             _ if next_char == '"' => Ok(Some(self.read_string()?)),
             _ if next_char.is_digit(10) => Ok(Some(self.read_number()?)),
+            _ if next_char.is_alphabetic() && next_char.is_lowercase() => {
+                Ok(Some(self.read_identifier()?))
+            }
             _ => Ok(None),
         }
     }
@@ -87,16 +90,36 @@ impl TokenStream {
 
     // reads a number
     pub fn read_number(&mut self) -> Result<Token, ParserError> {
-        let mut has_dot = false;
+        let has_dot = std::rc::Rc::new(std::cell::RefCell::new(false));
         let number = self.read_while(|char| {
             if char == '.' {
-                if has_dot {
+                if *has_dot.borrow() {
                     return false;
                 }
-                has_dot = true;
+                *has_dot.borrow_mut() = true;
                 return true;
             }
             char.is_digit(10)
+        })?;
+        Ok(Token {
+            token_type: TokenType::Number,
+            value: number,
+        })
+    }
+
+    // https://lisperator.net/pltut/parser/token-stream
+    // reads an identifier
+    pub fn read_identifier(&mut self) -> Result<Token, ParserError> {
+        let numbers_specials = (0..=9)
+            .collect::<Vec<i32>>()
+            .into_iter()
+            .map(|number| number.to_string().as_str())
+            .collect::<Vec<&str>>();
+        numbers_specials.push("-");
+        let identifier = self.read_while(|char| {
+            char.is_alphabetic()
+                || numbers_specials.contains(&char.to_string().as_str())
+                || char.is_lowercase()
         })?;
     }
 }
